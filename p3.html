@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>CNDH
+  </title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link href="css/estilos.css" rel="stylesheet" id="cssArchivo" type="text/css" media="all">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Neucha" rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="fonts/fonts.css">
+
+
+  <script type="text/javascript" src="js/usabilidad.js"></script>
+
+  <script>
+    /*
+    * marco_caloch - CUAED 20170106
+    */
+    var pesoGeneral = 20;//peso de control
+    var screenWidth = screen.width;
+    var screenHeight = screen.height;
+
+    function getHeightDoc(frame, opcion, border) {
+      var altura = 0;
+      var elementoA = document.getElementById(opcion);
+      var elementoB = $("#" + opcion);
+
+      //peso control si es dispositivo pequeño
+      if (screen.width <= 680) {
+        border = 0;
+        console.log("peso control:");
+      }//fin if
+      else if (screen.width <= 1280) {
+        border = Math.round(pesoGeneral / 2);
+      } else {
+        border = pesoGeneral;
+      }//fin else
+
+      if (elementoA) {
+        if (elementoA.offsetHeight > 0) {
+          altura = elementoA.offsetHeight + border;
+          //alert("offsetHeight="+elementoA.offsetHeight);
+        }
+        else if (elementoA.clientHeight > 0) {
+          altura = elementoA.clientHeight + border;
+          //alert("clientHeight="+elementoA.clientHeight);
+        }
+        else if (elementoA.height > 0) {
+          altura = elementoA.height + border;
+          //alert("height="+elementoA.height);
+        }
+        //alert("[JS]"+opcion+"="+altura);
+      } else if (elementoB != null) {
+        altura = $("#" + opcion).height() + border;
+        ///alert("[JQ]"+opcion+"="+altura);
+      } else {
+        altura = document.height + border;
+        //alert("[N]"+opcion+"="+altura);
+      }
+      //alert(opcion+"="+altura);
+      var fpadre = parent.document.getElementById(frame); //update 20170823
+      fpadre.setAttribute("height", altura); //da valor a frame superior
+
+      console.log("existe nivel 1 " + fpadre.name + " :: " + fpadre.height + " valor:" + altura);
+      console.log("muestra::" + $("#muestra").height());
+      //window.parent.document.getElementById(frame).height = altura;
+      //$("#"+frame, window.parent.document).attr("height",altura);
+    }//fin function
+
+
+    // redimenciona si hay cambio en tamaño de pantalla
+    function aplicaDimensionar() {
+      console.log(screenWidth + " // " + screen.width);
+      //if(screenWidth != screen.width || screenHeight != screen.height){
+      getHeightDoc('principal', 'muestra', pesoGeneral);//ajustamos valores
+      screenWidth = screen.width;
+      screenHeight = screen.height
+      console.log("revisa y cambia x tamaño de pantalla");
+      //}//fin if
+
+      //}  
+    }//fin aplicaDimensionar
+    //cada 3 segundos revisa
+    setInterval(function () { aplicaDimensionar(); }, 3000);
+
+  </script>
+
+</head>
+
+
+<body id="muestra" onLoad="getHeightDoc('principal','muestra',pesoGeneral);" onResize="getHeightDoc('principal','muestra',pesoGeneral);">
+
+
+
+
+
+  <div class="container">
+
+
+    <div style="background-color: #556221; padding: 5px; color: white;">
+      <div class="container">
+        <h4>Módulo 2. ¿Quiénes tienen derechos humanos?</h4>
+      </div>
+    </div><br><br>
+
+    <section class="container">
+
+
+
+      <!---accesibilidad//-->
+      <section class="accesible">
+        <div class="accesibilidad col-xs-12 col-lg-12 animated slideInLeft " style="margin-top:-20px">
+          <ul>
+            <li><a onclick="cambiarArchivoCss('css/estilos.css');"><i class="icon-c2" title="Contraste normal"></i></a></li>
+            <li><a onclick="cambiarArchivoCss('css/alto.css');"><i class="icon-c1" title="Alto contraste"></i></a></li>
+            <li><a onclick="zoomText('decrease','incrementoTexto')"><i class="icon-menos" title="Disminuye el tamaño del texto"></i></a></li>
+            <li><a onclick="zoomText('increase','incrementoTexto')"><i class="icon-mas" title="Aumenta el tamaño del texto"></i></a></li>
+            <li><a href="javascript:window.print();" title="Imprimir"><i class="icon-print" title="Imprimir"></i></a></li>
+          </ul>
+        </div>
+      </section>
+
+
+  </div>
+  <!-- contenido -->
+  <div id="contenido_general" class="container">
+    <div class="col-xs-12 col-lg-12" id="incrementoTexto">
+
+
+      <h2 class="headings color1" style="font-weight:500; ">
+        Sujetos de derechos humanos
+      </h2>
+      <br>
+
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+          <video class="embed-responsive-item" controls poster="video/postera1.png" width="100%">
+            <source src="video/animacion1.mp4" type="video/mp4">
+        </div>
+        <div class="col-md-2"></div>
+      </div>
+
+
+      <div class="row container2">
+        <div class="col-md-12">
+          <br>
+          <br>
+          <p style="text-align: center;">Si te encuentras en la misma situación que Julio, lee el artículo para conocer
+            quiénes son sujetos de derechos humanos.</p>
+          <center>
+            <span class="glyphicon glyphicon-chevron-down" style="color: #00416A; font-size: 1.5em;"></span>
+          </center>
+          <br>
+
+
+          <!--revista-->
+          <div class="col-md-12 col-lg-12 newspaper">
+            <br>
+            <h1 class="article-red" style="color: #556221;">
+              Personas como sujetos de derechos humanos
+            </h1>
+
+
+
+
+            <hr style="border: 0.5px solid #e6e6e6;"><br>
+
+
+            <h4 style="color: #00416A; font-weight:500; font-size: 20px; ">
+              Antecedentes
+            </h4>
+
+            <div class="row">
+              <div class="col-md-6">
+                <p>Los derechos humanos han tenido un desarrollo significativo, tanto en los derechos a reconocer, como
+                  en
+                  las personas a proteger. Si bien los derechos humanos son una aspiración universal inherente a la
+                  dignidad humana, también presentan particularidades históricas, es decir, forman parte de un proceso
+                  socio-histórico y no de una realidad estática y concluida. Por ello, los derechos humanos han
+                  evolucionado y se han ampliado gradualmente en respuesta a las demandas de transformar las
+                  condiciones
+                  políticas, económicas y sociales en diferentes épocas.</p>
+              </div>
+              <div class="col-md-6">
+
+                <img src="img/globalizacion_m2.jpg" alt="" srcset="" width="250px" class="img-responsive" style="margin: 0 auto">
+                <p class="xs-text" style="padding-top: 10px;">(s. a.) (2011). <i>Derechos humanos, aspiración universal</i>
+                  [fotografía editada]. Tomada de https://commons.wikimedia.org/wiki/File:Mundo_Globalizado.jpg</p>
+
+              </div>
+            </div>
+
+            <hr style="border: 0.5px solid #e6e6e6;"><br>
+
+            <p>Como parte de ese proceso histórico, hay grupos específicos que se vieron excluidos de las primeras
+              declaraciones de derechos humanos en el siglo XVIII pero, poco a poco, han ido reclamando el goce de sus
+              derechos. Las mujeres, pueblos indígenas, grupos afrodescendientes, personas con discapacidad y
+              migrantes,
+              entre otros colectivos, han demandado el reconocimiento y respeto de sus derechos humanos. <br><br></p>
+
+
+            <!--CUADRO DE VIDEO-->
+            <div style="background: #eee; padding: 37px; border-radius: 20px;">
+
+              <div class="row">
+                <div class="col-xs-12 col-sm-2 col-md-1">
+                  <img src="img/sabias.png" width="50px" style="margin-bottom: 10px; margin-top: -5px;">
+
+                </div>
+                <div class="col-xs-12 col-sm-10 col-md-11 divider-left">
+                  <h4 style="color: #00416A; font-weight:500; font-size: 20px; ">¿Sabías que…?</h4>
+                  <p>La negación de los derechos humanos a cualquier grupo humano, por alguna de sus características
+                    particulares, atenta contra el principio de igualdad y es un acto que ha propiciado grandes
+                    injusticias
+                    a lo largo de la historia de la humanidad.</p>
+                </div>
+
+              </div>
+
+
+            </div>
+
+
+
+            <br><br>
+
+
+            <div class="row">
+              <div class="col-md-6">
+                <p>Por ejemplo, en la <b>Declaración de los Derechos del Hombre y de los Ciudadanos</b>, promulgada en
+                  Francia en 1789, se excluía a la mujer. Para denunciar esta injusticia, Olimpia de Gouges escribió
+                  como
+                  protesta la <b>Declaración de los Derechos de la Mujer y la Ciudadana</b>, donde reivindicaba la
+                  igualdad
+                  de derechos de las mujeres frente a los varones. Actualmente, existen diversos instrumentos
+                  internacionales en materia de derechos humanos dedicados específicamente a hacer realidad los
+                  derechos
+                  humanos de las mujeres.</p>
+              </div>
+              <div class="col-md-6">
+
+                <img src="img/olimpia_m2.jpg" alt="" srcset="" width="300px" class="img-responsive" style="margin: 0 auto">
+                <p class="xs-text" style="padding-top: 10px;">(s. a.) (2010). <i>Placa conmemorativa en honor a Olimpia
+                    de
+                    Gouges, por escribir la Declaración de los Derechos de la Mujer y de la Ciudadana</i> [fotografía].
+                  Tomada de
+                  https://commons.wikimedia.org/wiki/File:Plaque_Olympe_de_Gouges,_18_rue_Sevardoni,_Paris_6.jpg</p>
+
+              </div>
+            </div>
+
+            <br><br>
+
+            <h4 style="color: #00416A; font-weight:500; font-size: 20px; ">
+              Actualidad
+            </h4>
+
+            <p>Una característica contemporánea de los derechos humanos, es el reconocimiento de que todo ser humano,
+              por
+              el hecho de serlo, es titular de dichos derechos. Conoce la evolución de esta característica.ç
+            </p>
+
+            <!-- ************* EMPIEZA SLIDE CONCEPTOS *******-->
+            <div id="slide" class="wrapper-section objetive">
+
+              <div class="row">
+
+                <div class="col-lg-12 ">
+                    <p style="color: #556221; font-size: 12px; text-align: center;">
+                        Pulsa sobre las flechas para ver la información.
+                      </p>
+                  <div id="passCarousel" class="carousel slide" data-interval="false" data-ride="carousel">
+                    <p class="visible-xs text-center swipe"><i class="fa fa-arrow-left" aria-hidden="true"></i>
+                      Deslizar
+                      hacia la izquierda para ver el contenido<i class="fa fa-arrow-right" aria-hidden="true"></i></p>
+
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner" role="listbox">
+                      <div class="item active">
+                        <div class="slide-s">
+                          <h4 class="headings-int" style="color: #666666;">La Declaración Universal de Derechos Humanos
+                            reconoce:</h4>
+                          <div id="idTextPanel">
+
+                            <p>“<b>Todos</b> los seres humanos nacen <b>libres e iguales</b> en dignidad y derechos y,
+                              dotados como están de razón y conciencia, deben comportarse fraternalmente los unos con
+                              los
+                              otros” (1948, artículo 1.°).</p>
+                            <br>
+
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="item">
+                        <div class="slide-s">
+                          <h4 class="headings-int" style="color: #666666;">Antes de la reforma constitucional en
+                            materia de
+                            derechos humanos, la Constitución Política de los Estados Unidos Mexicanos establecía:</h4>
+
+                          <p>“En los Estados Unidos Mexicanos, <b>todo individuo</b> gozará de las garantías que otorga
+                            esta Constitución, las cuales no podrán restringirse ni suspenderse, sino en los casos y
+                            con
+                            las condiciones que ella misma establece” (artículo 1.°). <br>
+
+                            La noción de <i>individuo</i> se refiere a aquellos derechos de los que gozan las personas
+                            como
+                            particulares, por lo tanto esta concepción expresa una dimensión individualista.</p>
+                          <br>
+
+
+
+                        </div>
+                      </div>
+                      <div class="item">
+                        <div class="slide-s">
+                          <h4 class="top-text-section" style="color: #666666;">A partir de 2011, el mencionado artículo
+                            establece:</h4>
+
+                          <p>
+                            “En los Estados Unidos Mexicanos, <b>todas las personas</b> gozarán de los derechos humanos
+                            reconocidos en esta Constitución y en los tratados internacionales de los que el Estado
+                            mexicano sea parte, así como de las garantías para su protección, cuyo ejercicio no podrá
+                            restringirse ni suspenderse, salvo en los casos y bajo las condiciones que esta
+                            Constitución
+                            establece”.<br>
+
+                            Con ello, la noción de persona permite comprender una dimensión individual (persona física)
+                            y
+                            grupal (persona colectiva).<br>
+
+                            Esta evolución ha hecho que los colectivos, tales como los pueblos indígenas, sean
+                            reconocidos
+                            como sujetos de derechos humanos.
+
+                          </p>
+
+
+                        </div>
+                      </div>
+
+
+
+                    </div>
+                    <!-- Left and right controls -->
+                    <a class="left carousel-control" href="#passCarousel" role="button" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left arr"
+                        aria-hidden="true"></span> <span class="sr-only">Previous</span> </a> <a class="right carousel-control"
+                      href="#passCarousel" role="button" data-slide="next"> <span class="glyphicon glyphicon-chevron-right arr"
+                        aria-hidden="true"></span> <span class="sr-only">Next</span> </a>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- ************* TERMINA SLIDE CONCEPTOS *******-->
+
+
+
+            <br><br>
+            <h4 style="color: #00416A; font-weight:500; font-size: 20px; ">
+              ¿Quién es sujeto de derechos humanos?
+            </h4>
+            <br>
+            <br>
+
+            <blockquote style="padding: 20px;">
+
+
+              <!---->
+              <div class="row">
+                <div class="col-xs-12 col-sm-2 col-md-1">
+                  <img src="img/definicion.png" width="50px" style="margin-bottom: 10px; margin-top: -5px;">
+
+                </div>
+                <div class="col-xs-12 col-sm-10 col-md-11 divider-left">
+                  <h4 style="color: #00416A; font-weight:500; font-size: 20px;">Definición</h4>
+
+                  <p>El <i>sujeto de los derechos humanos</i> puede definirse como la persona o grupos de personas a
+                    quienes va referida la titularidad, el ejercicio y las garantías de los derechos humanos.</p>
+                  <br>
+
+                </div>
+
+              </div>
+              <!---->
+
+
+
+            </blockquote>
+
+            <br>
+            <p>
+              Con base en la posición que las personas tienen frente a los derechos humanos, se habla de sujetos
+              activos y
+              pasivos, aunque esa condición se presenta de manera conjunta, ya que todas las personas tienen derechos,
+              pero
+              también están obligadas a respetar los de las demás.</p>
+            <br>
+
+            <div class="row">
+              <div class="col-md-6">
+                <img src="img/sujeto_activo.png" srcset="" width="90%" alt="sujeto activo" class="img-responsive max"
+                  style="margin: 0 auto">
+              </div>
+
+              <div class="col-md-6">
+                <img src="img/sujeto_pasivo.png" srcset="" width="90%" alt="sujeto pasivo" class="img-responsive max"
+                  style="margin: 0 auto">
+              </div>
+            </div>
+
+            <br>
+
+
+            <br>
+            <h4 style="color: #00416A; font-weight:500; font-size: 20px; ">
+              Conclusiones
+            </h4>
+
+            <br>
+
+            <p>Cualquiera que sea el fundamento filosófico sobre la inherencia de los derechos humanos a la persona, su
+              reconocimiento por parte del Estado, así como su reflejo en instrumentos legales de protección en los
+              ámbitos
+              nacional e internacional, han sido el producto de un sostenido desarrollo histórico dentro del cual, las
+              ideas, el sufrimiento de los pueblos y una determinación universal de lucha por la dignidad humana, han
+              ido
+              forzando la voluntad política necesaria para consolidar una gran conquista de la humanidad, como <b>el
+                reconocimiento universal de que toda persona tiene derechos por el mero hecho de serlo.</b></p><br>
+            <img src="img/universalidad_m2.png" alt="" srcset="" width="300px" class="img-responsive" style="margin: 0 auto">
+            <p class="xs-text" style="padding-top: 10px;">(s. a.) (2017). <i>Reconocimiento Universal de los Derechos
+                Humanos</i> [ilustración]. Tomada de https://pixabay.com/en/art-borders-boy-child-chromatic-2026073/</p><br>
+
+
+
+            <div style="background: #eee; padding: 37px; border-radius: 20px;">
+              <!---->
+              <div class="row">
+                <div class="col-xs-12 col-sm-2 col-md-1">
+                  <img src="img/sabermas.png" width="50px" style="margin-bottom: 10px; margin-top: -5px;">
+
+                </div>
+                <div class="col-xs-12 col-sm-10 col-md-11 divider-left">
+                  <h4 style="color: #00416A; font-weight:500; font-size: 20px; ">Para saber más...</h4>
+
+                  <p>Observa el video y conoce los 30 derechos establecidos en la Declaración Universal de Derechos
+                    Humanos.</p>
+
+
+                </div>
+
+              </div>
+              <!---->
+
+
+              <!--video-->
+              <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-10">
+                  <br>
+                  <video class="embed-responsive-item" controls poster="video/poster2.png" width="100%">
+                    <source src="video/video_derechos_m2.mp4" type="video/mp4">
+
+
+                </div>
+
+                <div class="col-md-1"></div>
+              </div>
+              <!--video-->
+
+              <br>
+
+            </div>
+
+
+            <br><br>
+
+
+
+
+
+
+
+
+
+
+
+
+          </div>
+          <!--revista-->
+
+
+
+
+        </div>
+      </div>
+
+    </div><!--termina div incremento-->
+  </div><!--termina div container-->
+
+
+
+
+
+
+
+
+
+      <div class="text-center">
+        <div class="pagination">
+          <a href="p2.html">&laquo;</a>
+
+          <a href="index.html">1</a>
+          <a href="p2.html">2</a>
+          <a class="active" href="#">3</a>
+          <a href="p4.html">4</a>
+          <a href="p5.html">5</a>
+          <a href="p6.html">6</a>
+          <a href="p7.html">7</a>
+          <a href="p8.html">8</a>
+
+
+          <a href="p4.html">&raquo;</a>
+        </div>
+        <br><br>
+        <hr style="border: 1px solid #e6e6e6;">
+
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" style="background: #00416A">
+          Fuentes de consulta
+        </button>
+        <br><br><br>
+      </div>
+
+
+
+
+      <!-- Modal -->
+      <div class="modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content ">
+            <div class="modal-header">
+              <h4 class="modal-title" id="exampleModalLongTitle">Fuentes de consulta</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p><b>Bibliografía</b></p>
+
+              <p>Arias, A. (2016). <i>Ensayos críticos de derechos humanos. Tesis, imperativos y derivas.</i> México:
+                CNDH.</p>
+
+              <p>De Pina, V. y Jiménez, A. (2015). <i>Defensa pública y derechos humanos en el Sistema de Justicia
+                  Penal
+                  Acusatorio.</i> México. Instituto Mexicano de Derechos Humanos y Democracia </p>
+
+              <p>Donnelly, J. (1994). <i>Derechos humanos universales: Teoría y práctica.</i> México: Gernika.</p>
+              <br>
+
+              <p>Fields, B. (2003). <i>Rethinking Human Rights for the New Millennium</i> [Repensando los Derechos
+                Humanos
+                para el Nuevo Milenio]. Nueva York: Palgrave Macmillan.</p>
+              <br>
+
+              <p>Fields, B. (2003). <i>Rethinking Human Rights for the New Millennium</i> [Repensando los Derechos
+                Humanos
+                para el Nuevo Milenio]. Nueva York: Palgrave Macmillan.</p>
+              <br>
+
+              <p>Lara, D. (2013). <i>Los grupos en situación de vulnerabilidad.</i> México: CNDH.</p>
+              <br>
+
+              <p>Vázquez, D. y Serrano, S. (2011). Los principios de universalidad, interdependencia, indivisibilidad y
+                progresividad. Apuntes para su aplicación práctica. En M. Carbonell y P. Salazar (Coords.). <i>La
+                  Reforma
+                  Constitucional de Derechos Humanos: un nuevo paradigma.</i> México: IIJ-UNAM.</p>
+
+
+              <p>Vázquez, D. y Serrano, S. (2013). Los derechos en acción. <i>Obligaciones y principios de los derechos
+                  humanos.</i> México: FLACSO.</p>
+              <br>
+              <br>
+
+              <p><b>Documentos electrónicos</b></p>
+
+              <p>CNDH. (2004). <i>Recomendación General no. 8/2004 Sobre el caso de la discriminación en las escuelas a
+                  menores portadores de VIH o que padecen sida</i> [Versión electrónica]. México: Autor. Consultada el
+                4 de
+                abril de 2018 de <a href="http://www.cndh.org.mx/sites/all/doc/Recomendaciones/generales/RecGral_008.pdf"
+                  target="_blank">http://www.cndh.org.mx/sites/all/doc/Recomendaciones/generales/RecGral_008.pdf</a>
+              </p>
+
+              <p>CONAPRED. (2010). <i>Encuesta Nacional sobre Discriminación en México, ENADIS 2010. Resultados sobre
+                  diversidad religiosa</i> [Versión electrónica]. México: Autor. Consultada el 4 de abril de 2018 de <a
+                  href="http://www.conapred.org.mx/userfiles/files/Enadis-DR-ACCSS.pdf" target="_blank">http://www.conapred.org.mx/userfiles/files/Enadis-DR-ACCSS.pdf</a>
+              </p>
+
+              <p><i>Constitución Política de los Estados Unidos Mexicanos</i> [Versión electrónica]. Última reforma
+                publicada en el DOF el 15/09/2017. Consultada el 30 de marzo de 2018 de <a href="https://www.juridicas.unam.mx/legislacion/ordenamiento/constitucion-politica-de-los-estados-unidos-mexicanos"
+                  target="_blank">https://www.juridicas.unam.mx/legislacion/ordenamiento/constitucion-politica-de-los-estados-unidos-mexicanos</a>
+              </p>
+              <br>
+
+              <p><i>Declaración Universal de Derechos Humano</i> [Versión electrónica]. Publicada el 13/12/1985.
+                Consultada
+                el 14 de junio de 2018 de <a href="http://www.un.org/es/universal-declaration-human-rights/" target="_blank">http://www.un.org/es/universal-declaration-human-rights/</a>
+              </p>
+              <br>
+
+              <p>Serrano, S. (2013). Obligaciones del Estado frente a los derechos humanos y sus principios rectores:
+                una
+                relación para la interpretación y aplicación de los derechos. Instituto de Investigaciones Jurídicas.
+                Suprema Corte de Justicia de la Nación. Fundación Konrad Adenauer. Consultado el 14 de junio de 2018 de
+                <a href="https://archivos.juridicas.unam.mx/www/bjv/libros/8/3567/9.pdf" target="_blank">https://archivos.juridicas.unam.mx/www/bjv/libros/8/3567/9.pdf</a>
+              </p>
+              <br>
+
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" data-dismiss="modal" style="background: #00416A;">Cerrar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+      </section>
+
+
+
+      <script src="js/jquery-3.1.1.min.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
+
+</style>

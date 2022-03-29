@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>CNDH
+  </title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link href="css/estilos.css" rel="stylesheet" id="cssArchivo" type="text/css" media="all">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Neucha" rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="fonts/fonts.css">
+
+
+  <script type="text/javascript" src="js/usabilidad.js"></script>
+
+  <script>
+    /*
+        * marco_caloch - CUAED 20170106
+        */
+    var pesoGeneral = 20;//peso de control
+    var screenWidth = screen.width;
+    var screenHeight = screen.height;
+
+    function getHeightDoc(frame, opcion, border) {
+      var altura = 0;
+      var elementoA = document.getElementById(opcion);
+      var elementoB = $("#" + opcion);
+
+      //peso control si es dispositivo pequeño
+      if (screen.width <= 680) {
+        border = 0;
+        console.log("peso control:");
+      }//fin if
+      else if (screen.width <= 1280) {
+        border = Math.round(pesoGeneral / 2);
+      } else {
+        border = pesoGeneral;
+      }//fin else
+
+      if (elementoA) {
+        if (elementoA.offsetHeight > 0) {
+          altura = elementoA.offsetHeight + border;
+          //alert("offsetHeight="+elementoA.offsetHeight);
+        }
+        else if (elementoA.clientHeight > 0) {
+          altura = elementoA.clientHeight + border;
+          //alert("clientHeight="+elementoA.clientHeight);
+        }
+        else if (elementoA.height > 0) {
+          altura = elementoA.height + border;
+          //alert("height="+elementoA.height);
+        }
+        //alert("[JS]"+opcion+"="+altura);
+      } else if (elementoB != null) {
+        altura = $("#" + opcion).height() + border;
+        ///alert("[JQ]"+opcion+"="+altura);
+      } else {
+        altura = document.height + border;
+        //alert("[N]"+opcion+"="+altura);
+      }
+      //alert(opcion+"="+altura);
+      var fpadre = parent.document.getElementById(frame); //update 20170823
+      fpadre.setAttribute("height", altura); //da valor a frame superior
+
+      console.log("existe nivel 1 " + fpadre.name + " :: " + fpadre.height + " valor:" + altura);
+      console.log("muestra::" + $("#muestra").height());
+      //window.parent.document.getElementById(frame).height = altura;
+      //$("#"+frame, window.parent.document).attr("height",altura);
+    }//fin function
+
+
+    // redimenciona si hay cambio en tamaño de pantalla
+    function aplicaDimensionar() {
+      console.log(screenWidth + " // " + screen.width);
+      //if(screenWidth != screen.width || screenHeight != screen.height){
+      getHeightDoc('principal', 'muestra', pesoGeneral);//ajustamos valores
+      screenWidth = screen.width;
+      screenHeight = screen.height
+      console.log("revisa y cambia x tamaño de pantalla");
+      //}//fin if
+
+      //}  
+    }//fin aplicaDimensionar
+    //cada 3 segundos revisa
+    setInterval(function () { aplicaDimensionar(); }, 3000);
+
+  </script>
+
+</head>
+
+<body id="muestra" onLoad="getHeightDoc('principal','muestra',pesoGeneral);" onResize="getHeightDoc('principal','muestra',pesoGeneral);">
+  <div class="container">
+    <div style="background-color: #556221; padding: 5px; color: white; ">
+      <div class="container">
+        <h4>Módulo 2. ¿Quiénes tienen derechos humanos?</h4>
+      </div>
+    </div>
+    <br><br>
+    <section class="container">
+      <!---accesibilidad//-->
+      <section class="accesible">
+        <div class="accesibilidad col-xs-12 col-lg-12 animated slideInLeft " style="margin-top:-20px">
+          <ul>
+            <li><a onclick="cambiarArchivoCss('css/estilos.css');"><i class="icon-c2" title="Contraste normal"></i></a></li>
+            <li><a onclick="cambiarArchivoCss('css/alto.css');"><i class="icon-c1" title="Alto contraste"></i></a></li>
+            <li><a onclick="zoomText('decrease','incrementoTexto')"><i class="icon-menos" title="Disminuye el tamaño del texto"></i></a></li>
+            <li><a onclick="zoomText('increase','incrementoTexto')"><i class="icon-mas" title="Aumenta el tamaño del texto"></i></a></li>
+            <li><a href="javascript:window.print();" title="Imprimir"><i class="icon-print" title="Imprimir"></i></a></li>
+          </ul>
+        </div>
+      </section>
+  </div>
+  <!-- contenido -->
+  <div id="contenido_general" class="container">
+    <div class="col-xs-12 col-lg-12" id="incrementoTexto">
+      <h2 class="headings color1" style="font-weight:500; ">Respeto a los derechos humanos </h2>
+      <hr style="border: 1px solid #e6e6e6;;">
+      <br><br>
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+          <video class="embed-responsive-item" controls poster="video/postera3.png" width="100%">
+            <source src="video/animacion3.mp4" type="video/mp4">
+        </div>
+        <div class="col-md-2"></div>
+      </div>
+      <br><br>
+      <div class="row">
+        <div class="col-md-12">
+          <div>
+            <center>
+              <span class="glyphicon glyphicon-chevron-down" style="color: #00416A; font-size: 1.5em;"></span>
+            </center>
+            <br>
+            <h4 style="color: #00416A; font-weight:500; font-size: 20px;">
+              ¿Quién debe respetar los derechos humanos?
+            </h4>
+            <br>
+            <p>
+              El Estado, representado en las autoridades, tiene la obligación de respetar, proteger, garantizar y
+              promover
+              los derechos humanos.
+            </p>
+            <br><br>
+            <blockquote>
+              <div class="row">
+                <div class="col-xs-12 col-sm-2 col-md-1">
+                  <img src="img/juridica.png" width="50px" style="margin-bottom: 10px; margin-top: -5px;">
+                </div>
+                <div class="col-xs-12 col-sm-10 col-md-11 divider-left">
+                  <h4 style="color: #00416A; font-weight:500; font-size: 20px;">Nota jurídica</h4>
+                  <p style="font-size: 14px;">
+                    El artículo 1.° de la Constitución mexicana establece: “[…] todas las autoridades, en el ámbito de
+                    sus
+                    competencias, tienen la obligación de <b>promover, respetar, proteger y garantizar </b>los derechos
+                    humanos de conformidad con los principios de <b>universalidad, interdependencia, indivisibilidad y
+                      progresividad</b>. En consecuencia, el Estado deberá <b>prevenir, investigar, sancionar y reparar</b>
+                    las violaciones a los derechos humanos, en los términos que establezca la ley […]”.
+                  </p>
+                </div>
+              </div>
+            </blockquote>
+            <br><br>
+            <p>
+              Por tanto, el Estado tiene cuatro obligaciones generales frente a los derechos humanos, las cuales son
+              las
+              siguientes:</p>
+            <br>
+          </div>
+          <center>
+            <p style="color: #556221; font-size: 12px;">
+              Pulsa cada obligación para ver la información.
+            </p><br>
+          </center>
+          <!--COMIENZA fichero-->
+          <div class="row">
+            <div class="col-md-12 col-lg-12">
+              <div class="card">
+                <ul class="nav nav-tabs1" role="tablist">
+                  <li role="presentation" class="">
+                    <a href="#home" aria-controls="home" role="tab" data-toggle="tab" aria-expanded="true">
+                      <p><b>Respetar</b></p>
+                    </a>
+                  </li>
+                  <li role="presentation" class="">
+                    <a href="#profile" aria-controls="profile" role="tab" data-toggle="tab" aria-expanded="false">
+                      <p><b>Proteger</b></p>
+                    </a>
+                  </li>
+                  <li role="presentation" class="">
+                    <a href="#profile2" aria-controls="profile" role="tab" data-toggle="tab" aria-expanded="false">
+                      <p><b>Garantizar</b></p>
+                    </a></li>
+                  <li role="presentation" class="active">
+                    <a href="#profile3" aria-controls="profile" role="tab" data-toggle="tab" aria-expanded="false">
+                      <p><b>Promover</b></p>
+                    </a>
+                  </li>
+                </ul>
+
+                <div class="tab-content">
+
+                  <div role="tabpanel" class="tab-pane" id="home">
+                    <br>
+                    <p>
+                      Hace referencia a la no obstaculización del ejercicio o poner en peligro un derecho tutelado; por
+                      lo
+                      que, implica el aseguramiento de las condiciones mínimas para el ejercicio de ese derecho y la
+                      forma
+                      y casos en que podrá restringirse. Se trata de una obligación de mantener el goce del derecho,
+                      cuyo
+                      cumplimiento debe ser inmediato. Generalmente, implica una abstención por parte del Estado.
+                    </p>
+                  </div>
+
+                  <div role="tabpanel" class="tab-pane" id="profile">
+                    <br>
+                    <p>
+                      Esta obligación está dirigida a los agentes estatales en el marco de sus respectivas funciones,
+                      para
+                      crear el marco jurídico y la maquinaria institucional necesaria para prevenir las violaciones a
+                      derechos humanos cometidas por particulares y agentes estatales. Por tanto, es una obligación de
+                      cumplimiento inmediato con naturaleza progresiva (Serrano, 2013).
+                    </p>
+                  </div>
+
+                  <div role="tabpanel" class="tab-pane" id="profile2">
+                    <br>
+                    <p>
+                      Implica el establecimiento de todos los mecanismos y recursos para hacer exigibles y justiciables
+                      los
+                      derechos humanos. El Estado debe de organizar el aparato institucional para que todas las
+                      personas
+                      puedan acceder a ellos. En el centro de la obligación, yace el principio de efectividad. El
+                      objetivo
+                      primordial de esta obligación, es que el Estado se ocupe de dar efectividad al ejercicio de los
+                      derechos humanos por parte de las personas. (Vázquez, 2013)
+                    </p>
+                  </div>
+
+                  <div role="tabpanel" class="tab-pane active" id="profile3">
+                    <br>
+                    <p>
+                      Implica que las personas conozcan sus derechos y los mecanismos de defensa, pero también el deber
+                      de
+                      garantizar que sepan cómo ejercer mejor esos derechos, es decir, debe tender al desarrollo del
+                      empoderamiento de las personas desde y para los derechos. Esta obligación tiene una estrecha
+                      relación
+                      con la progresividad y prohibición de regresión y la aplicación del máximo de recursos
+                      disponibles,
+                      ya que busca la gradual realización de los derechos humanos, a través de la implementación y
+                      adopción
+                      de medidas que favorezcan el efectivo disfrute de los derechos. (Vázquez, 2013)</p>
+                  </div>
+                </div>
+              </div>
+              <br><br>
+            </div>
+          </div>
+          <!--TERMINA fichero-->
+        </div>
+      </div>
+      <!--BOTONES CONCEPTOS-->
+
+      <br>
+      <div class="row">
+        <div class="col-md-12"><br>
+          <p>A continuación, se enumeran las formas en que se incumplen las <b>obligaciones, frente a los derechos
+              humanos.</b></p>
+
+          <!-- ************* EMPIEZA CONTENT ACORDEON *******-->
+          <div id="acordeon" class="wrapper-section padding dark-row">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-12">
+                  <p style="color: #556221; font-size: 12px; text-align: center;">
+                    Pulsa cada pestaña para ver la información.
+                  </p>
+                  <br />
+                </div>
+                <div class="card col-md-12">
+                  <div class="panel-group" id="accordion">
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <p class="acordeonTit">
+                          <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                            <span class="glyphicon glyphicon-chevron-down"></span> Por acción:
+                          </a>
+                        </p>
+                      </div>
+                      <div id="collapseOne" class="panel-collapse collapse">
+                        <div class="panel-body">
+                          <div class="row">
+                            <div class="col-md-12">
+                              <p>
+                                Cuando se vulnera o amenaza un derecho fundamental, con una conducta de hacer
+                                (positiva)
+                                (De Pina, 2015). Por ejemplo, el artículo 3.° constitucional establece que toda persona
+                                tiene derecho a la educación; si el Estado niega este derecho a alguna persona, se está
+                                ante una acción que provoca la violación al derecho a la educación
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <p class="acordeonTit"> <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"><span
+                              class="glyphicon glyphicon-chevron-down"></span> Por omisión: </a> </p>
+                      </div>
+                      <div id="collapseTwo" class="panel-collapse collapse">
+                        <div class="panel-body">
+                          <div class="row">
+                            <div class="col-md-12">
+                              <p>Cuando la vulneración o amenaza es consecuencia del incumplimiento (no hacer) de una
+                                acción (un hacer) establecida en una norma o deliberadamente no se realiza lo
+                                establecido
+                                en ésta para generar un daño (De Pina, 2015). Por ejemplo, el derecho a la educación
+                                requiere la implementación de toda una estructura que permita su realización (escuelas,
+                                maestros, planes y programas que incluyan el respeto a los derechos humanos, etcétera);
+                                si
+                                el Estado no realiza dichas acciones, por omisión viola derechos humanos.
+                              </p>
+                            </div>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <p class="acordeonTit">
+                          <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree"><span class="glyphicon glyphicon-chevron-down"></span>
+                            Por aquiescencia: </a>
+                        </p>
+                      </div>
+                      <div id="collapseThree" class="panel-collapse collapse">
+                        <div class="panel-body">
+                          <div class="row">
+                            <div class="col-md-12">
+                              <p>Cuando la vulneración o amenaza de un derecho fundamental es cometida por particulares
+                                o
+                                un grupo de personas quienes actúan con el consentimiento, autorización, apoyo,
+                                instigación
+                                o permisividad de alguna autoridad (De Pina, 2015). Por ejemplo, la educación puede ser
+                                pública o privada; en este segundo supuesto, los particulares deben acatar las normas
+                                establecidas del respeto a este derecho. Si hubiera una situación de discriminación en
+                                una
+                                escuela privada por algún motivo y las autoridades educativas del Estado no hacen nada,
+                                se
+                                está ante una violación a este derecho por anuencia.
+                              </p>
+
+
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- fin acordeon-->
+
+          <br><br>
+
+          <p>
+            A su vez, el artículo 1.° Constitucional establece lo que algunos autores han denominado <b>“deberes” del
+              Estado frente a los derechos humanos, que también son de carácter obligatorio</b> y son los siguientes:
+          </p>
+
+          <br><br>
+
+          <center>
+            <p style="color: #556221; font-size: 12px;">
+              Pulsa cada obligación para ver la información.
+            </p><br>
+          </center>
+
+          <div class="card">
+            <ul class="nav nav-tabs1" role="tablist">
+              <li role="presentation" class=""><a href="#Prevenir" aria-controls="home" role="tab" data-toggle="tab"
+                  aria-expanded="true">
+                  <p><b>Prevenir</b></p>
+                </a>
+              </li>
+              <li role="presentation" class=""><a href="#Investigar" aria-controls="profile" role="tab" data-toggle="tab"
+                  aria-expanded="false">
+                  <p><b>Investigar</b></p>
+                </a>
+              </li>
+              <li role="presentation" class=""><a href="#Sancionar" aria-controls="profile" role="tab" data-toggle="tab"
+                  aria-expanded="false">
+                  <p><b>Sancionar</b></p>
+                </a></li>
+              <li role="presentation" class="active"><a href="#Reparar" aria-controls="profile" role="tab" data-toggle="tab"
+                  aria-expanded="false">
+                  <p><b>Reparar</b></p>
+                </a>
+              </li>
+            </ul>
+
+            <div class="tab-content">
+
+              <div role="tabpanel" class="tab-pane" id="Prevenir">
+                <br>
+                <p>
+                  El deber de prevención abarca todas las medidas de carácter jurídico, político, administrativo y
+                  cultural, que promuevan la salvaguarda de los derechos humanos y aseguren que su eventual vulneración
+                  sea
+                  efectivamente considerada y tratada como un hecho ilícito susceptible de acarrear sanciones para
+                  quien
+                  las cometa, así como la obligación de indemnizar a las víctimas por sus consecuencias perjudiciales
+                  (Vázquez, 2013)
+                </p>
+                <img src="img/prevenir_m2.jpg" alt="" srcset="" width="250px" class="img-responsive" style="margin: 0 auto">
+                <p class="xs-text" style="padding-top: 10px;">Altmann, G. (2015). <i>Salvaguardar los derechos humanos</i>
+                  [fotografía editada]. Tomada de https://pixabay.com/en/hands-protect-protection-father-598145/</p>
+              </div>
+
+              <div role="tabpanel" class="tab-pane" id="Investigar">
+                <br>
+                <p>
+                  La investigación es una obligación de comportamiento, lo cual significa que no es incumplida por el
+                  solo
+                  hecho de no producir el resultado esperado por alguna de las partes involucradas. Además, implica la
+                  búsqueda de la verdad y justicia; por ello, la responsabilidad del Estado puede verse comprometida
+                  cuando
+                  las violaciones a los derechos humanos no son investigadas con celeridad y seriedad y, como
+                  consecuencia,
+                  esa falta de debida diligencia significará entonces el incumplimiento de la obligación de protección
+                  a
+                  cargo del Estado.
+                </p>
+                <img src="img/investigar_m2.jpg" alt="" srcset="" width="250px" class="img-responsive" style="margin: 0 auto">
+                <p class="xs-text" style="padding-top: 10px;">Lachmann-Anke, P. y Lachmann-Anke, M. (2011). <i>Búsqueda
+                    de
+                    la verdad y la justicia</i> [ilustración 3D]. Tomada de
+                  https://pixabay.com/en/magnifying-glass-search-to-find-1020142/</p>
+              </div>
+
+              <div role="tabpanel" class="tab-pane" id="Sancionar">
+                <br>
+                <p>
+                  Implica poner fin al comportamiento contrario a las obligaciones nacionales e internacionales
+                  asumidas
+                  por los Estados; por ello, resulta irrelevante que la conducta haya sido llevada a cabo por un
+                  particular
+                  o un agente del Estado (búsqueda de justicia). La sanción de las personas responsables de violaciones
+                  a
+                  los derechos humanos, juega un papel muy importante en la materialización del derecho a la verdad ya
+                  que,
+                  si la sanción se presenta, se contribuye ampliamente a desincentivar éstas conductas violatorias
+                  (Vázquez, 2013).
+                </p>
+                <img src="img/sancionar_m2.jpg" alt="" srcset="" width="200px" class="img-responsive" style="margin: 0 auto">
+                <p class="xs-text" style="padding-top: 10px;">Hassan, M. (2018). <i>Sancionar a las y los responsables
+                    de
+                    violaciones a los Derechos Humanos</i> [ilustración]. Tomada de
+                  https://pixabay.com/en/judge-lawyer-attorney-barrister-3008038/ </p>
+              </div>
+
+              <div role="tabpanel" class="tab-pane active" id="Reparar">
+                <br>
+                <p>
+                  Contempla las medidas con las que se pretende hacer desaparecer los efectos de las violaciones
+                  cometidas
+                  por el Estado. Es la necesidad de reclamar justicia, lo cual viene a significar el reconocimiento del
+                  daño sufrido. Su naturaleza y monto dependen del daño ocasionado en los planos tanto material como
+                  inmaterial (Vázquez, 2013).
+                </p>
+                <img src="img/reparar_m2.jpg" alt="" srcset="" width="270px" class="img-responsive" style="margin: 0 auto">
+                <p class="xs-text" style="padding-top: 10px;">
+                  Sang, H. C. (2017). <i>Escultura de la justicia</i> [fotografía]. Tomada de
+                  https://pixabay.com/en/justice-statue-lady-justice-2060093/</p>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+        <!--BOTONES CONCEPTOS-->
+      </div>
+
+
+    </div>
+    <!--BOTONES CONCEPTOS-->
+
+    <br><br>
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+        <video class="embed-responsive-item" controls poster="video/postera4.png" width="100%">
+          <source src="video/animacion4.mp4" type="video/mp4">
+
+      </div>
+
+      <div class="col-md-2"></div>
+    </div>
+  </div>
+  </div>
+  </div><!--termina div incremento-->
+  </div><!--termina div container-->
+  <div class="text-center">
+    <div class="pagination">
+      <a href="p4.html">&laquo;</a>
+
+      <a href="index.html">1</a>
+      <a href="p2.html">2</a>
+      <a href="p3.html">3</a>
+      <a href="p4.html">4</a>
+      <a class="active" href="#">5</a>
+      <a href="p6.html">6</a>
+      <a href="p7.html">7</a>
+      <a href="p8.html">8</a>
+
+      <a href="p6.html">&raquo;</a>
+    </div>
+    <br><br>
+    <hr style="border: 1px solid #e6e6e6;">
+
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" style="background: #00416A">
+      Fuentes de consulta
+    </button>
+    <br><br><br>
+  </div>
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content ">
+        <div class="modal-header">
+          <h4 class="modal-title" id="exampleModalLongTitle">Fuentes de consulta</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p><b>Bibliografía</b></p>
+
+          <p>Arias, A. (2016). <i>Ensayos críticos de derechos humanos. Tesis, imperativos y derivas.</i> México: CNDH.</p>
+
+          <p>De Pina, V. y Jiménez, A. (2015). <i>Defensa pública y derechos humanos en el Sistema de Justicia Penal
+              Acusatorio.</i> México. Instituto Mexicano de Derechos Humanos y Democracia </p>
+
+          <p>Donnelly, J. (1994). <i>Derechos humanos universales: Teoría y práctica.</i> México: Gernika.</p>
+          <br>
+
+          <p>Fields, B. (2003). <i>Rethinking Human Rights for the New Millennium</i> [Repensando los Derechos Humanos
+            para el Nuevo Milenio]. Nueva York: Palgrave Macmillan.</p>
+          <br>
+
+          <p>Fields, B. (2003). <i>Rethinking Human Rights for the New Millennium</i> [Repensando los Derechos Humanos
+            para el Nuevo Milenio]. Nueva York: Palgrave Macmillan.</p>
+          <br>
+
+          <p>Lara, D. (2013). <i>Los grupos en situación de vulnerabilidad.</i> México: CNDH.</p>
+          <br>
+
+          <p>Vázquez, D. y Serrano, S. (2011). Los principios de universalidad, interdependencia, indivisibilidad y
+            progresividad. Apuntes para su aplicación práctica. En M. Carbonell y P. Salazar (Coords.). <i>La Reforma
+              Constitucional de Derechos Humanos: un nuevo paradigma.</i> México: IIJ-UNAM.</p>
+
+
+          <p>Vázquez, D. y Serrano, S. (2013). Los derechos en acción. <i>Obligaciones y principios de los derechos
+              humanos.</i> México: FLACSO.</p>
+          <br>
+          <br>
+
+          <p><b>Documentos electrónicos</b></p>
+
+          <p>CNDH. (2004). <i>Recomendación General no. 8/2004 Sobre el caso de la discriminación en las escuelas a
+              menores portadores de VIH o que padecen sida</i> [Versión electrónica]. México: Autor. Consultada el 4 de
+            abril de 2018 de <a href="http://www.cndh.org.mx/sites/all/doc/Recomendaciones/generales/RecGral_008.pdf"
+              target="_blank">http://www.cndh.org.mx/sites/all/doc/Recomendaciones/generales/RecGral_008.pdf</a> </p>
+
+          <p>CONAPRED. (2010). <i>Encuesta Nacional sobre Discriminación en México, ENADIS 2010. Resultados sobre
+              diversidad religiosa</i> [Versión electrónica]. México: Autor. Consultada el 4 de abril de 2018 de <a
+              href="http://www.conapred.org.mx/userfiles/files/Enadis-DR-ACCSS.pdf" target="_blank">http://www.conapred.org.mx/userfiles/files/Enadis-DR-ACCSS.pdf</a>
+          </p>
+
+          <p><i>Constitución Política de los Estados Unidos Mexicanos</i> [Versión electrónica]. Última reforma
+            publicada en el DOF el 15/09/2017. Consultada el 30 de marzo de 2018 de <a href="https://www.juridicas.unam.mx/legislacion/ordenamiento/constitucion-politica-de-los-estados-unidos-mexicanos"
+              target="_blank">https://www.juridicas.unam.mx/legislacion/ordenamiento/constitucion-politica-de-los-estados-unidos-mexicanos</a>
+          </p>
+          <br>
+
+          <p><i>Declaración Universal de Derechos Humano</i> [Versión electrónica]. Publicada el 13/12/1985. Consultada
+            el 14 de junio de 2018 de <a href="http://www.un.org/es/universal-declaration-human-rights/" target="_blank">http://www.un.org/es/universal-declaration-human-rights/</a>
+          </p>
+          <br>
+
+          <p>Serrano, S. (2013). Obligaciones del Estado frente a los derechos humanos y sus principios rectores: una
+            relación para la interpretación y aplicación de los derechos. Instituto de Investigaciones Jurídicas.
+            Suprema Corte de Justicia de la Nación. Fundación Konrad Adenauer. Consultado el 14 de junio de 2018 de <a
+              href="https://archivos.juridicas.unam.mx/www/bjv/libros/8/3567/9.pdf" target="_blank">https://archivos.juridicas.unam.mx/www/bjv/libros/8/3567/9.pdf</a>
+          </p>
+          <br>
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal" style="background: #00416A;">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </section>
+  <script src="js/jquery-3.1.1.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

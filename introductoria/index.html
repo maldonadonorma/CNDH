@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<title>Actividad introductoria</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Falso verdadero V2.1"  />
+    <meta name="keywords" content="UNAM, CUAED"  />
+    <meta name="author" content="UNAM CUAED" />
+    <meta name="news_keywords" content="UNAM, CUAED" />
+    <meta name="generator" content="UNAM CUAED" />
+    <meta property="og:site_name" content="Falso verdadero V2.1" />
+    <meta itemprop="name" content="UNAM, CUAED" />
+    <meta itemprop="image" content="" />
+    <meta itemprop="description" content="Falso verdadero V2.1" />
+    <meta property="og:title" content="" />
+    <meta property="og:url" content="" />
+    <meta property="og:type" content="activity" />
+    <meta property="og:description" content="Falso verdadero V2.1" />
+    <meta property="og:image" content="" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
+	
+	<!--frame resize-->
+    <script src="../js/frame_resize/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/frame_resize/iframeResizer.contentWindow.min.js"></script>
+    <!--frame resize-->
+
+	<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+    <script>
+		var jq321 = $.noConflict();var crm=102;
+	</script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="css/ra05.css" />
+	<script src="js/reactivos.js"></script>
+	<script src="js/listaReactivos.js"></script>
+	<script src="js/configRecurso.js"></script>
+    <script src="js/verdaderoFalso.js"></script>
+    <!-- JQuery UI -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.0/themes/smoothness/jquery-ui.css" />
+    <!-- Estilos generales de los recursos //-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet" />
+	<link href="css/font.css" rel="stylesheet" />
+    <script src="js/sweetalert.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/sweetalert.css" />
+	<script>
+		jq321(document).ready(function() {
+			creaIndice();
+			if (mezclarPreguntas) {reordenaArreglo(reactivos)};
+			creaTablaVF(reactivosMostrar);
+			limpiaRadiosVF();
+			jq321("button#btnRevisar").show();
+			jq321("button#btnReiniciar").hide();
+		});
+	</script>
+</head>
+
+<body>
+	<noscript>
+ Para utilizar las funcionalidades completas de este sitio es necesario tener
+ JavaScript habilitado. Aquí están las <a href="https://www.enable-javascript.com/es/"
+ target="_blank"> instrucciones para habilitar JavaScript en tu navegador web</a>.</noscript>
+
+	<section class="">
+		<div class="row">
+			<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+				
+				<p>
+					Las constituciones modernas y diversos instrumentos tienen como principio básico la igualdad y la no discriminación; a continuación, analizarás el fragmento de una recomendación general, lo que te permitirá identificar quiénes tienen derechos humanos, así como algunas características que generan discriminación e impiden la vigencia de los mismos.<br>
+
+Observa el siguiente video, basado en la Recomendación General número 8/2004, sobre el caso de discriminación en las escuelas a personas menores de edad que portan VIH o padecen sida; posteriormente, lee las aseveraciones y elige la opción que más se acerque a tu opinión.
+</p><br>
+
+
+<center>
+      <video class="embed-responsive-item" width="80%" controls poster="poster.png" width="100%"> 
+<source src="video.mp4" type="video/mp4"></video>
+	</center><br><br>
+  
+  <h3 class="headings-int under-li">Consulta</h3>
+
+  <p>Puedes revisar completa la Recomendación General número 8/2004 en el siguiente enlace:
+  </p>
+  <div class="well">
+  	<p style="text-align:center;">
+  		<a href="http://www.cndh.org.mx/sites/all/doc/Recomendaciones/generales/RecGral_008.pdf" target="_blank">http://www.cndh.org.mx/sites/all/doc/Recomendaciones/generales/RecGral_008.pdf</a></p>
+  </div>
+
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" id="contenedor"></div>
+		</div>
+		<div class="pager col-md-12 col-lg-12 col-sm-12 col-xs-12">
+			<button id="btnRevisar" class="btn btn-primary" onClick="revisarVF()" style="background-color: #00416a;">Revisar</button>
+			<button id="btnReiniciar" class="btn btn-primary" onClick="window.location.reload()" style="background-color: #00416a;">Reiniciar</button>
+		</div>
+	</section>
+	<br />
+</body>
+</html>

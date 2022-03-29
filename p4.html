@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>CNDH
+  </title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link href="css/estilos.css" rel="stylesheet" id="cssArchivo" type="text/css" media="all">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Neucha" rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="fonts/fonts.css">
+
+
+  <script type="text/javascript" src="js/usabilidad.js"></script>
+
+  <script>
+    /*
+    * marco_caloch - CUAED 20170106
+    */
+    var pesoGeneral = 20;//peso de control
+    var screenWidth = screen.width;
+    var screenHeight = screen.height;
+
+    function getHeightDoc(frame, opcion, border) {
+      var altura = 0;
+      var elementoA = document.getElementById(opcion);
+      var elementoB = $("#" + opcion);
+
+      //peso control si es dispositivo pequeño
+      if (screen.width <= 680) {
+        border = 0;
+        console.log("peso control:");
+      }//fin if
+      else if (screen.width <= 1280) {
+        border = Math.round(pesoGeneral / 2);
+      } else {
+        border = pesoGeneral;
+      }//fin else
+
+      if (elementoA) {
+        if (elementoA.offsetHeight > 0) {
+          altura = elementoA.offsetHeight + border;
+          //alert("offsetHeight="+elementoA.offsetHeight);
+        }
+        else if (elementoA.clientHeight > 0) {
+          altura = elementoA.clientHeight + border;
+          //alert("clientHeight="+elementoA.clientHeight);
+        }
+        else if (elementoA.height > 0) {
+          altura = elementoA.height + border;
+          //alert("height="+elementoA.height);
+        }
+        //alert("[JS]"+opcion+"="+altura);
+      } else if (elementoB != null) {
+        altura = $("#" + opcion).height() + border;
+        ///alert("[JQ]"+opcion+"="+altura);
+      } else {
+        altura = document.height + border;
+        //alert("[N]"+opcion+"="+altura);
+      }
+      //alert(opcion+"="+altura);
+      var fpadre = parent.document.getElementById(frame); //update 20170823
+      fpadre.setAttribute("height", altura); //da valor a frame superior
+
+      console.log("existe nivel 1 " + fpadre.name + " :: " + fpadre.height + " valor:" + altura);
+      console.log("muestra::" + $("#muestra").height());
+      //window.parent.document.getElementById(frame).height = altura;
+      //$("#"+frame, window.parent.document).attr("height",altura);
+    }//fin function
+
+
+    // redimenciona si hay cambio en tamaño de pantalla
+    function aplicaDimensionar() {
+      console.log(screenWidth + " // " + screen.width);
+      //if(screenWidth != screen.width || screenHeight != screen.height){
+      getHeightDoc('principal', 'muestra', pesoGeneral);//ajustamos valores
+      screenWidth = screen.width;
+      screenHeight = screen.height
+      console.log("revisa y cambia x tamaño de pantalla");
+      //}//fin if
+
+      //}  
+    }//fin aplicaDimensionar
+    //cada 3 segundos revisa
+    setInterval(function () { aplicaDimensionar(); }, 3000);
+
+  </script>
+
+</head>
+
+
+<body id="muestra" onLoad="getHeightDoc('principal','muestra',pesoGeneral);" onResize="getHeightDoc('principal','muestra',pesoGeneral);">
+
+
+
+
+
+  <div class="container">
+
+
+    <div style="background-color: #556221; padding: 5px; color: white; ">
+      <div class="container">
+        <h4>Módulo 2. ¿Quiénes tienen derechos humanos?</h4>
+      </div>
+    </div><br><br>
+
+    <section class="container">
+
+
+
+      <!---accesibilidad//-->
+      <section class="accesible">
+        <div class="accesibilidad col-xs-12 col-lg-12 animated slideInLeft " style="margin-top:-20px">
+          <ul>
+            <li><a onclick="cambiarArchivoCss('css/estilos.css');"><i class="icon-c2" title="Contraste normal"></i></a></li>
+            <li><a onclick="cambiarArchivoCss('css/alto.css');"><i class="icon-c1" title="Alto contraste"></i></a></li>
+            <li><a onclick="zoomText('decrease','incrementoTexto')"><i class="icon-menos" title="Disminuye el tamaño del texto"></i></a></li>
+            <li><a onclick="zoomText('increase','incrementoTexto')"><i class="icon-mas" title="Aumenta el tamaño del texto"></i></a></li>
+            <li><a href="javascript:window.print();" title="Imprimir"><i class="icon-print" title="Imprimir"></i></a></li>
+          </ul>
+        </div>
+      </section>
+
+
+  </div>
+
+  <!-- contenido -->
+  <div id="contenido_general" class="container">
+    <div class="col-xs-12 col-lg-12" id="incrementoTexto">
+      <h2 class="headings color1" style="font-weight:500; ">
+          Situación de vulnerabilidad 
+      </h2>
+      <hr style="border: 1px solid #e6e6e6;">
+
+
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+          <video class="embed-responsive-item" controls poster="video/postera2.png" width="100%">
+            <source src="video/animacion2.mp4" type="video/mp4">
+        </div>
+        <div class="col-md-2"></div>
+      </div><br><br>
+
+
+      <div class="row container2">
+        <div class="col-md-12">
+
+
+
+          <!--revista-->
+
+
+
+
+          <center>
+            <span class="glyphicon glyphicon-chevron-down" style="color: #00416A; font-size: 1.5em;"></span>
+          </center>
+          <br>
+
+
+          <div class="newspaper">
+
+
+            <div class="row">
+              <div class="col-md-12">
+                <br><br>
+                <h4 style="color: #00416A; font-weight:500; font-size: 20px; ">
+                  Personas y grupos en situación de vulnerabilidad
+                </h4>
+                <br>
+                <p>
+                  En un mundo ideal, todas las personas tendrían no sólo los mismos derechos, sino la posibilidad real
+                  de
+                  ejercerlos en igualdad de condiciones y oportunidades, sin distinción por causa alguna, mucho menos
+                  por
+                  aquellos motivos propios de la esencia humana, la cual hace a cada persona ser quien es.<br>
+                  No obstante, todos los días el ser humano enfrenta la desigualdad. El miedo a aquello que le resulta
+                  diferente provoca rechazo, discriminación, intolerancia u otras formas de violencia.<br>
+                  El desarrollo histórico de los derechos humanos puede entenderse a través de un cuádruple proceso.
+
+                </p>
+                <br>
+              </div>
+            </div>
+
+            <!-- ************* INICIA CONTENT FICHERO DE CONCEPTOS H *******-->
+            <div class="row">
+              <div class="col-md-12 col-lg-12">
+                <p style="color: #556221; font-size: 12px; text-align: center;">
+                  Pulsar en cada apartado para ver la información.
+                </p>
+
+                <div class="card">
+                  <ul class="nav nav-tabs1" role="tablist">
+                    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">
+                        <p><b>Proceso de<br> la positivización</b></p>
+                      </a></li>
+
+                    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">
+                        <p><b>Proceso de<br> generalización</b></p>
+                      </a></li>
+
+                    <li role="presentation"><a href="#profile2" aria-controls="profile" role="tab" data-toggle="tab">
+                        <p><b>Proceso de<br> internacionalización</b></p>
+                      </a></li>
+                    <li role="presentation"><a href="#profile3" aria-controls="profile" role="tab" data-toggle="tab">
+                        <p><b>Proceso de<br> especificación</b></p>
+                      </a></li>
+
+                  </ul>
+                  <!-- Tab panes -->
+                  <div class="tab-content">
+
+                    <div role="tabpanel" class="tab-pane active" id="home">
+                      <br>
+                      <p>
+                        Incorporación de los derechos humanos a las constituciones de los Estados.
+                      </p>
+                      <br>
+
+                      <img src="img/constitucion_m2.png" alt="" srcset="" width="200px" class="img-responsive" style="margin: 0 auto;">
+                      <p class="xs-text" style="padding-top: 10px;">(s. a.) (2011). <i>Portada interior original de la
+                          Constitución de 1917</i> [fotografía]. Tomada de
+                        https://es.wikipedia.org/wiki/Archivo:Portada_Interior_Original_de_la_Constitucion_de_1917.png</p>
+
+                    </div>
+
+                    <div role="tabpanel" class="tab-pane" id="profile">
+                      <br>
+                      <p>
+                        Extensión a todos los humanos de un número cada vez más amplio de derechos.
+                      </p>
+
+
+                      <br>
+
+                      <img src="img/generalizacion_m2.jpg" alt="" srcset="" width="450px" class="img-responsive" style="margin: 0 auto;">
+                      <p class="xs-text" style="padding-top: 10px;">Altmann, G. (2016). <i>Proceso de generalización de
+                          los
+                          derechos humanos</i> [collage]. Tomado de
+                        https://pixabay.com/en/magnifying-glass-human-head-faces-1607208/</p>
+
+                    </div>
+
+                    <div role="tabpanel" class="tab-pane" id="profile2">
+                      <br>
+                      <p>
+                        Desbordamiento del referente de los Estados, en el marco de la comunidad internacional.
+                      </p>
+
+
+                      <br>
+
+                      <img src="img/internacionalizacion_m2.jpg" alt="" srcset="" width="450px" class="img-responsive"
+                        style="margin: 0 auto;">
+                      <p class="xs-text" style="padding-top: 10px;">Altmann, G. (2018). <i>Proceso de
+                          internacionalización
+                          de los derechos humanos</i> [ilustración]. Tomada de
+                        https://pixabay.com/en/flags-personal-about-world-earth-3280311/</p>
+
+                    </div>
+
+                    <div role="tabpanel" class="tab-pane" id="profile3">
+                      <br>
+                      <p>
+                        Determinación de los derechos para titulares específicos: mujeres, personas jóvenes, pueblos
+                        indígenas, poblaciones afrodescendientes, personas con discapacidad, personas migrantes, entre
+                        otros colectivos.
+
+                      </p>
+                      <p>Este proceso se vincula con la identificación de la población o grupos en situación de
+                        vulnerabilidad que buscan reconocimiento específico para el ejercicio de sus derechos humanos.</p>
+
+
+                      <br>
+
+                      <img src="img/discriminacion_m2.jpg" alt="" srcset="" width="200px" class="img-responsive" style="margin: 0 auto;">
+                      <p class="xs-text" style="padding-top: 10px;">Comisión Nacional de los Derechos Humanos (2012).<i>
+                          Portada del libro “La discriminación y el derecho a la no discriminación”</i> [fotografía]</p>
+
+                    </div>
+
+
+
+                  </div>
+                </div>
+                <br><br>
+              </div>
+
+              <!-- Fin Fichero de conceptos H-->
+
+              <!-- ************* TERMINA FICHERO DE CONCEPTOS H *******-->
+              <br>
+
+
+
+
+
+
+              <div class="row">
+                <div class="col-md-12">
+                  <blockquote style="padding: 20px;">
+
+                    <div class="row">
+                      <div class="col-xs-12 col-sm-2 col-md-1">
+                        <img src="img/explicacion.png" width="50px" style="margin-bottom: 10px; margin-top: -5px;">
+
+                      </div>
+                      <div class="col-xs-12 col-sm-10 col-md-11 divider-left">
+                        <h4 style="color: #00416A; font-weight:500; font-size: 20px; ">Explicación</h4>
+
+                        <p>Los <i>grupos en situación de vulnerabilidad</i> son aquéllos que, debido al menosprecio
+                          generalizado por alguna condición específica que comparten, un prejuicio social erigido en
+                          torno
+                          a ellos, o por una situación histórica de opresión o injusticia, se ven afectados
+                          sistemáticamente en el disfrute y ejercicio de sus derechos humanos.<br>
+                          Asimismo, se han detectado grupos o poblaciones que deben contar con un trato diferenciado en
+                          razón de sus características específicas, por ejemplo, las niñas, niños y adolescentes. A
+                          estos
+                          grupos se les han denominado “de atención prioritaria”.
+                        </p>
+
+
+                      </div>
+
+
+                  </blockquote>
+                  <br>
+                  <p></p>
+                </div>
+              </div>
+
+
+              <div class="row">
+                <div class="col-md-12">
+                  <p>En estos casos, se busca hacer visibles las diferencias y circunstancias específicas de cada
+                    persona,
+                    para determinar la forma en la que se le deben garantizar sus derechos humanos; no obstante, esto
+                    no
+                    debe confundirse con la conducta discriminatoria, la cual se traduce en diferentes formas de trato
+                    injusto e inmerecido, debido a prejuicios, estereotipos y estigmas que justifican las desigualdades
+                    sociales. </p>
+
+                  <p>La discriminación constituye un obstáculo para el pleno desarrollo de las personas y, por tanto,
+                    para
+                    la tutela de la dignidad. </p>
+
+                  <p>Algunos ejemplos claros de conductas discriminatorias son los siguientes:</p><br>
+
+                  <!--RECURSO TARJETAS-->
+
+                  <p style="color: #556221; font-size: 12px; text-align: center;">
+                    Pulsa cada conducta para ver la información.
+                  </p><br>
+
+                  <div class="row flip">
+                    <section class="col-md-4 col-sm-4">
+                      <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+                        <div class="flipper">
+                          <div class="front" style="background: url(img/card1.png); background-size: 100%; background-repeat: no-repeat; background-color: #00416A;">
+                            <!-- front content -->
+                          </div>
+                          <div class="back" style="background-color: #00416A">
+                            <!-- back content -->
+
+                            <div class="cuadro2">
+                              <p>Impedir el acceso a la <b>educación</b> pública o privada por tener una discapacidad,
+                                otra
+                                nacionalidad o credo religioso.</p>
+
+
+                            </div>
+
+
+                          </div>
+                        </div>
+                      </div>
+
+                    </section>
+                    <section class="col-md-4 col-sm-4">
+                      <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+                        <div class="flipper">
+                          <div class="front" style="background: url(img/card2.png); background-size: 100%; background-repeat: no-repeat; background-color:#00416A;">
+                            <!-- front content -->
+                          </div>
+                          <div class="back" style="background-color: #00416A">
+                            <!-- back content -->
+                            <div class="cuadro2">
+                              <p>Prohibir la libre elección de <b>empleo</b> o restringir las oportunidades de acceso,
+                                permanencia y ascenso, por ejemplo, a consecuencia de la corta o avanzada edad.</p>
+
+
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </section>
+
+                    <section class="col-md-4 col-sm-4">
+                      <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+                        <div class="flipper">
+                          <div class="front" style="background: url(img/card3.png); background-size: 100%; background-repeat: no-repeat; background-color:#00416A;">
+                            <!-- front content -->
+                          </div>
+                          <div class="back" style="background-color: #00416A">
+                            <!-- back content -->
+                            <div class="cuadro2">
+                              <p>Establecer diferencias entre los <b>salarios, prestaciones y condiciones</b> laborales
+                                para trabajos iguales, como puede ocurrir con las mujeres frente a los hombres.</p>
+
+
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </section>
+
+                  </div><br><br><br>
+                  <!--TERMINA RECURSO TARJETAS-->
+
+                  <div class="row">
+                    <div class="col-md-12">
+
+                      <!--divi-->
+
+                      <div class="row">
+                        <div class="col-xs-12 col-sm-2 col-md-1">
+                          <img src="img/video.png" width="50px" style="margin-bottom: 10px; margin-top: -5px;">
+
+                        </div>
+                        <div class="col-xs-12 col-sm-10 col-md-11 divider-left">
+                          <h4 style="color: #00416A; font-weight:500; font-size: 20px; ">Video</h4>
+
+                          <p>Observa el video y conoce los 30 derechos establecidos en la Declaración Universal de
+                            Derechos
+                            Humanos.</p>
+
+
+                        </div>
+                        <!--div-->
+
+
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-2"></div>
+                      <div class="col-md-8">
+                        <br>
+                        <video class="embed-responsive-item" controls poster="video/poster4.png" width="100%">
+                          <source src="video/video_discriminacion_m2.mp4" type="video/mp4">
+                      </div>
+                      <div class="col-md-2"></div>
+                    </div>
+                    <br><br>
+
+                    <!--CUADRO DE VIDEO-->
+                    <div style="background: #eee; padding: 37px; border-radius: 20px;">
+
+
+
+                      <div class="row">
+                        <div class="col-md-12">
+
+                          <div class="row">
+                            <div class="col-xs-12 col-sm-2 col-md-1">
+                              <img src="img/sabermas.png" width="50px" style="margin-bottom: 10px; margin-top: -5px;">
+
+                            </div>
+                            <div class="col-xs-12 col-sm-10 col-md-11 divider-left">
+                              <h4 style="color: #00416A; font-weight:500; font-size: 20px; ">Para saber más...</h4>
+
+                              <p>La vulnerabilidad no es una condición personal, es decir, no se trata de la
+                                característica
+                                de un ser humano. <b>Las personas no son por sí mismas “vulnerables”, “débiles” o
+                                  “indefensas”</b>, sino que, por una condición particular, se enfrentan a un entorno
+                                que
+                                injustamente restringe o impide el desarrollo de uno o varios aspectos de su vida, de
+                                manera que se ven sujetas a una situación de vulnerabilidad y, por lo tanto, a un mayor
+                                riesgo de ver sus derechos afectados.</p>
+
+                              <p>En virtud de lo anterior, se hablará siempre de <b>grupos o personas en situación de
+                                  vulnerabilidad</b>, y no de “personas o grupos vulnerables”, el cual resulta un
+                                término
+                                discriminatorio e inexacto.</p>
+
+
+                            </div>
+
+                          </div>
+
+
+
+
+                        </div>
+                      </div>
+
+                    </div>
+                    <!--CUADRO DE VIDEO-->
+
+                    <br><br>
+                    <p>En mayor o menor medida, todas las personas pueden estar en riesgo de que sus derechos sean
+                      violados. Existen ciertas características o condiciones en virtud de las cuales, determinados
+                      sectores de la población pueden presentar mayor riesgo ante dichas violaciones, es decir, mayor
+                      vulnerabilidad. A continuación, se muestran algunos ejemplos:</p><br><br>
+
+                    <h4 style="color: #00416A; font-weight:500; font-size: 20px; text-align:center;">
+                      Grupos o personas en situación de vulnerabilidad
+                    </h4><br>
+
+                    <p style="color: #556221; font-size: 12px; text-align: center;">
+                      Coloca el cursor sobre la imagen, para ver la información.
+                    </p>
+                    <br>
+
+                  </div>
+
+                </div>
+
+                <!--INICIAN TARJETAS1-->
+                <div class="row">
+
+
+                  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                    <center>
+                      <div class="container33">
+                        <img src="img/mujeres.png" alt="mujeres" class="image">
+                        <div class="overlay">
+                          <div class="text">Las mujeres han vivido situaciones de subordinación y exclusión respecto a
+                            los
+                            hombres; esto ha generado que no puedan ejercer sus derechos, en igualdad de condiciones.<br>
+                            El reconocimiento de los derechos humanos de este grupo, ha significado una lucha tenaz y
+                            de
+                            gran esfuerzo por parte de muchas mujeres, a lo largo de la historia.
+                          </div>
+                        </div>
+                      </div>
+                    </center>
+                  </div>
+
+
+
+                  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                    <center>
+                      <div class="container33">
+                        <img src="img/afrodescendientes.png" alt="afrodescendientes" class="image">
+                        <div class="overlay">
+                          <div class="text">Son personas descendientes de mujeres y hombres africanos que llegaron a la
+                            Nueva España -en su mayoría- como personas esclavizadas (COPRED: s/f).<br>
+
+                            Este grupo ha sido prejuiciado y estigmatizado por su apariencia física, lenguaje, cultura
+                            y
+                            tradiciones, de manera que se les excluye de la vida en sociedad y, sobre todo, de la
+                            posibilidad de ejercer sus derechos y participar con el resto de la sociedad nacional.
+                          </div>
+                        </div>
+                      </div>
+                    </center>
+                  </div>
+
+
+                  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                    <center>
+                      <div class="container33">
+                        <img src="img/migrantes.png" alt="migrantes" class="image">
+                        <div class="overlay">
+                          <div class="text">Algunas de las personas extranjeras se encuentran en situación irregular
+                            dentro
+                            de un país; con frecuencia, sufren abusos y vejaciones, son estereotipados y estigmatizados
+                            como delincuentes o integrantes de grupos delictivos.</div>
+                        </div>
+                      </div>
+                    </center>
+                  </div>
+
+
+                  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                    <center>
+                      <div class="container33">
+                        <img src="img/indigenas.png" alt="indígenas" class="image">
+                        <div class="overlay">
+                          <div class="text">Las personas y comunidades indígenas comparten una identidad, culturas y
+                            tradiciones. Asimismo, cuentan con sus propias instituciones y mecanismos para alcanzar el
+                            desarrollo, determinando libremente de conformidad con sus propias necesidades e intereses.<br>
+                            Ha sido un grupo históricamente invisibilizado; se enfrentan a constantes obstáculos en el
+                            ejercicio de sus derechos humanos y, al no contar con un reconocimiento de los mismos, son
+                            víctimas de discriminación social y estructural.
+                          </div>
+                        </div>
+                      </div>
+                    </center>
+                  </div>
+
+
+
+                  <!--TERMINAN TARJETAS1-->
+
+                  <!--INICIAN TARJETAS2-->
+
+
+                  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                    <center>
+                      <div class="container33">
+                        <img src="img/discapacidad.png" alt="discapacidad" class="image">
+                        <div class="overlay">
+                          <div class="text">Es todo ser humano que vive temporal o permanentemente con una disminución
+                            en
+                            sus facultades físicas, mentales, intelectuales o sensoriales que, al interactuar con
+                            diversas
+                            barreras, puedan impedir su participación plena y efectiva en la sociedad, en igualdad de
+                            condiciones con las demás. <br>
+
+                            Se debe omitir el uso de eufemismos como personas con capacidades diferentes, o términos
+                            discriminatorios como inválidos, incapacitados o discapacitados; estos términos se
+                            consideran
+                            vejatorios al calificar a la persona y asumirla esencialmente incapaz, en lugar de entender
+                            que
+                            tiene una dificultad.
+
+                          </div>
+                        </div>
+                      </div>
+                    </center>
+                  </div>
+
+
+
+                  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                    <center>
+                      <div class="container33">
+                        <img src="img/ninos.png" alt="ninos" class="image">
+                        <div class="overlay">
+                          <div class="text">Su edad expone a las personas pertenecientes a este grupo, a la
+                            discriminación,
+                            el abuso y las agresiones. <br>
+
+                            Por ello, niñas, niños y adolescentes requieren que el Estado les otorgue una protección
+                            especial para garantizarles, de iure y de facto, el pleno goce de todos los derechos
+                            humanos,
+                            constitucional e internacionalmente reconocidos.
+                          </div>
+                        </div>
+                      </div>
+                    </center>
+                  </div>
+
+
+                  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                    <center>
+                      <div class="container33">
+                        <img src="img/mayores.png" alt="mayores" class="image">
+                        <div class="overlay">
+                          <div class="text">
+                            El envejecimiento de la población implica crecimiento en la demanda de protección social,
+                            lo
+                            cual genera una mayor vulnerabilidad al envejecer, ya que no todas las personas logran
+                            jubilarse y tener una pensión. Además, la edad les dificulta incorporarse al mundo laboral
+                            formal, lo cual limita su acceso a los sistemas de seguridad del Estado.
+                          </div>
+                        </div>
+                      </div>
+                    </center>
+                  </div>
+
+
+                  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                    <center>
+                      <div class="container33">
+                        <img src="img/lgbt.png" alt="LGBTTI" class="image">
+                        <div class="overlay">
+                          <div class="text">La comunidad Lésbico, Gay, Bisexual, Travesti, Transgénero, Transexual e
+                            Intersexual está conformada por personas que tienen preferencias u orientaciones sexuales
+                            distintas a la heterosexual.<br>
+
+                            En México predomina el rechazo a la diversidad sexual, por lo que las personas LGBTTTI, son
+                            víctimas del linchamiento moral e incluso físico, por no compartir una práctica sexual
+                            aceptada
+                            socialmente como “convencional”.
+
+                          </div>
+                        </div>
+                      </div>
+                    </center>
+                  </div>
+
+
+
+                  <!--TERMINAN TARJETAS2-->
+
+                  <!--INICIAN TARJETAS3-->
+
+
+                  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                    <center>
+                      <div class="container33">
+                        <img src="img/pobreza.png" alt="pobreza" class="image">
+                        <div class="overlay">
+                          <div class="text">La pobreza es la causa, pero también la expresión de diversas violaciones a
+                            derechos humanos, pues coloca a las personas en contextos sociales, inequitativos y
+                            dispares;
+                            el Estado está obligado a garantizar los derechos humanos de las personas que se encuentran
+                            en
+                            esta condición.
+
+                          </div>
+                        </div>
+                      </div>
+                    </center>
+                  </div>
+
+
+
+                  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                    <center>
+                      <div class="container33">
+                        <img src="img/religion.png" alt="religión" class="image">
+                        <div class="overlay">
+                          <div class="text">Las personas enfrentan numerosas barreras en el ejercicio de sus derechos a
+                            causa de su religión.<br>
+
+                            De acuerdo con la Encuesta Nacional de Discriminación en México (ENADIS), una de cada
+                            cuatro
+                            personas no católicas (25.6 %), considera que se han violado sus derechos, a causa de sus
+                            creencias religiosas. Además, para el 28 % de quienes pertenecen a una religión distinta a
+                            la
+                            católica, la discriminación, rechazo, falta de aceptación y desigualdad, son sus
+                            principales
+                            problemas (Conapred, 2010).
+
+
+                          </div>
+                        </div>
+                      </div>
+                    </center>
+                  </div>
+
+
+                  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                    <center>
+                      <div class="container33">
+                        <img src="img/reclusion.png" alt="reclusión" class="image">
+                        <div class="overlay">
+                          <div class="text">El artículo 10.1 del Pacto Internacional de Derechos Civiles y Políticos
+                            señala
+                            que “toda persona privada de su libertad será tratada humanamente y con el respeto debido a
+                            la
+                            dignidad inherente al ser humano”; lamentablemente, múltiples y sistemáticas violaciones de
+                            derechos se presentan en los penales, lo cual genera la situación de especial
+                            vulnerabilidad,
+                            de que son objeto éstas personas.
+                          </div>
+                        </div>
+                      </div>
+                    </center>
+                  </div>
+
+
+                  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                    <center>
+                      <div class="container33">
+                        <img src="img/calle.png" alt="calle" class="image">
+                        <div class="overlay">
+                          <div class="text">Las condiciones de discriminación y exclusión en perjuicio de este grupo de
+                            personas, se plasman en la falta de oportunidades para que accedan a una vida adecuada,
+                            condiciones y servicios que les permitan desarrollarse, y favorezcan el ejercicio pleno de
+                            sus
+                            derechos humanos, especialmente los económicos, sociales y culturales, como el derecho a la
+                            vivienda, salud, educación o alimentación, entre otros. Además, esta situación de calle
+                            afecta
+                            de manera doble o triple a mujeres, niñas, niños y personas con discapacidad.
+
+                          </div>
+                        </div>
+                      </div>
+                    </center>
+                  </div>
+
+
+
+                  <!--TERMINAN TARJETAS3-->
+
+                  <!--INICIAN TARJETAS3-->
+
+
+                  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                    <center>
+                      <div class="container33">
+                        <img src="img/explotacion.png" alt="explotación" class="image">
+                        <div class="overlay">
+                          <div class="text">La trata de personas es un fenómeno delictivo. Miles de personas son
+                            víctimas
+                            de este delito; particularmente, mujeres, niñas y niños, quienes son captados, trasladados,
+                            vendidos y comprados con fines de explotación. La trata de personas se encuentra definida
+                            en el
+                            Protocolo de Palermo y la Ley General para Prevenir, Sancionar y Erradicar los Delitos en
+                            Materia de Trata de Personas y para la Protección y Asistencia a las Víctimas de estos
+                            Delitos.
+
+                          </div>
+                        </div>
+                      </div>
+                    </center>
+                  </div>
+
+
+
+                  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                    <center>
+                      <div class="container33">
+                        <img src="img/hogar.png" alt="hogar" class="image">
+                        <div class="overlay">
+                          <div class="text">Las condiciones que las personas trabajadoras del hogar enfrentan en el
+                            empleo
+                            son difíciles, ya que el trabajo del hogar no se ve como una ocupación, sino como parte de
+                            las
+                            actividades que las mujeres han desarrollado por su “naturaleza”. Actualmente, no existe
+                            una
+                            protección específica que garantice sus derechos; esto las coloca en situación de
+                            vulnerabilidad.
+
+
+                          </div>
+                        </div>
+                      </div>
+                    </center>
+                  </div>
+
+
+                  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+
+                  </div>
+
+
+                  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+
+                  </div>
+
+
+                </div>
+                <!--TERMINAN TARJETAS3-->
+
+
+                <br>
+                <div class="row">
+                  <div class="col-md-12">
+                    <blockquote style="padding: 20px;">
+
+                      <div class="row">
+                        <div class="col-xs-12 col-sm-2 col-md-1">
+                          <img src="img/reflexion.png" width="50px" style="margin-bottom: 10px; margin-top: -5px;">
+
+                        </div>
+                        <div class="col-xs-12 col-sm-10 col-md-11 divider-left">
+                          <h4 style="color: #00416A; font-weight:500; font-size: 20px; "> Reflexión</h4>
+
+                          <p>En suma, la vulnerabilidad es una situación de desventaja, ya que toda persona o grupo de
+                            personas en esa condición, quedan injustamente en riesgo de sufrir discriminación o la
+                            grave
+                            violación de sus derechos humanos. Si se trabajara por una verdadera igualdad, se lograría
+                            disminuir las condiciones materiales que sujetan a las personas a vulnerabilidad; además,
+                            se
+                            acabaría con los estereotipos que someten a la identidad a criterios de aceptación que, por
+                            sí
+                            mismos, son contrarios a la dignidad humana.
+                          </p>
+
+
+                        </div>
+
+                      </div>
+
+                    </blockquote>
+                    <br>
+                    <p></p>
+                  </div>
+                </div>
+
+
+
+              </div>
+
+            </div>
+
+          </div>
+        </div><!--termina div incremento-->
+      </div><!--termina div container-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <div class="text-center">
+        <div class="pagination">
+          <a href="p3.html">&laquo;</a>
+
+          <a href="index.html">1</a>
+          <a href="p2.html">2</a>
+          <a href="p3.html">3</a>
+          <a class="active" href="#">4</a>
+          <a href="p5.html">5</a>
+          <a href="p6.html">6</a>
+          <a href="p7.html">7</a>
+          <a href="p8.html">8</a>
+
+
+          <a href="p5.html">&raquo;</a>
+        </div>
+        <br><br>
+        <hr style="border: 1px solid #e6e6e6;">
+
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" style="background: #00416A">
+          Fuentes de consulta
+        </button>
+        <br><br><br>
+      </div>
+
+
+
+
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content ">
+            <div class="modal-header">
+              <h4 class="modal-title" id="exampleModalLongTitle">Fuentes de consulta</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p><b>Bibliografía</b></p>
+
+              <p>Arias, A. (2016). <i>Ensayos críticos de derechos humanos. Tesis, imperativos y derivas.</i> México:
+                CNDH.</p>
+
+              <p>De Pina, V. y Jiménez, A. (2015). <i>Defensa pública y derechos humanos en el Sistema de Justicia
+                  Penal Acusatorio.</i> México. Instituto Mexicano de Derechos Humanos y Democracia </p>
+
+              <p>Donnelly, J. (1994). <i>Derechos humanos universales: Teoría y práctica.</i> México: Gernika.</p>
+              <br>
+
+              <p>Fields, B. (2003). <i>Rethinking Human Rights for the New Millennium</i> [Repensando los Derechos
+                Humanos para el Nuevo Milenio]. Nueva York: Palgrave Macmillan.</p>
+              <br>
+
+              <p>Fields, B. (2003). <i>Rethinking Human Rights for the New Millennium</i> [Repensando los Derechos
+                Humanos para el Nuevo Milenio]. Nueva York: Palgrave Macmillan.</p>
+              <br>
+
+              <p>Lara, D. (2013). <i>Los grupos en situación de vulnerabilidad.</i> México: CNDH.</p>
+              <br>
+
+              <p>Vázquez, D. y Serrano, S. (2011). Los principios de universalidad, interdependencia, indivisibilidad y
+                progresividad. Apuntes para su aplicación práctica. En M. Carbonell y P. Salazar (Coords.). <i>La
+                  Reforma Constitucional de Derechos Humanos: un nuevo paradigma.</i> México: IIJ-UNAM.</p>
+
+
+              <p>Vázquez, D. y Serrano, S. (2013). Los derechos en acción. <i>Obligaciones y principios de los derechos
+                  humanos.</i> México: FLACSO.</p>
+              <br>
+              <br>
+
+              <p><b>Documentos electrónicos</b></p>
+
+              <p>CNDH. (2004). <i>Recomendación General no. 8/2004 Sobre el caso de la discriminación en las escuelas a
+                  menores portadores de VIH o que padecen sida</i> [Versión electrónica]. México: Autor. Consultada el
+                4 de abril de 2018 de <a href="http://www.cndh.org.mx/sites/all/doc/Recomendaciones/generales/RecGral_008.pdf"
+                  target="_blank">http://www.cndh.org.mx/sites/all/doc/Recomendaciones/generales/RecGral_008.pdf</a>
+              </p>
+
+              <p>CONAPRED. (2010). <i>Encuesta Nacional sobre Discriminación en México, ENADIS 2010. Resultados sobre
+                  diversidad religiosa</i> [Versión electrónica]. México: Autor. Consultada el 4 de abril de 2018 de <a
+                  href="http://www.conapred.org.mx/userfiles/files/Enadis-DR-ACCSS.pdf" target="_blank">http://www.conapred.org.mx/userfiles/files/Enadis-DR-ACCSS.pdf</a>
+              </p>
+
+              <p><i>Constitución Política de los Estados Unidos Mexicanos</i> [Versión electrónica]. Última reforma
+                publicada en el DOF el 15/09/2017. Consultada el 30 de marzo de 2018 de <a href="https://www.juridicas.unam.mx/legislacion/ordenamiento/constitucion-politica-de-los-estados-unidos-mexicanos"
+                  target="_blank">https://www.juridicas.unam.mx/legislacion/ordenamiento/constitucion-politica-de-los-estados-unidos-mexicanos</a>
+              </p>
+              <br>
+
+              <p><i>Declaración Universal de Derechos Humano</i> [Versión electrónica]. Publicada el 13/12/1985.
+                Consultada el 14 de junio de 2018 de <a href="http://www.un.org/es/universal-declaration-human-rights/"
+                  target="_blank">http://www.un.org/es/universal-declaration-human-rights/</a> </p>
+              <br>
+
+              <p>Serrano, S. (2013). Obligaciones del Estado frente a los derechos humanos y sus principios rectores:
+                una relación para la interpretación y aplicación de los derechos. Instituto de Investigaciones
+                Jurídicas. Suprema Corte de Justicia de la Nación. Fundación Konrad Adenauer. Consultado el 14 de junio
+                de 2018 de <a href="https://archivos.juridicas.unam.mx/www/bjv/libros/8/3567/9.pdf" target="_blank">https://archivos.juridicas.unam.mx/www/bjv/libros/8/3567/9.pdf</a>
+              </p>
+              <br>
+
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" data-dismiss="modal" style="background: #00416A;">Cerrar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+      </section>
+
+
+
+      <script src="js/jquery-3.1.1.min.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
+
+</style>

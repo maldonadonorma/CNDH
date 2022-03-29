@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CNDH
+    </title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="css/estilos.css" rel="stylesheet" id="cssArchivo" type="text/css" media="all">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Neucha" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+
+    <script type="text/javascript" src="js/usabilidad.js"></script>
+
+    <script>
+        /*
+        * marco_caloch - CUAED 20170106
+        */
+        var pesoGeneral = 20;//peso de control
+        var screenWidth = screen.width;
+        var screenHeight = screen.height;
+
+        function getHeightDoc(frame, opcion, border) {
+            var altura = 0;
+            var elementoA = document.getElementById(opcion);
+            var elementoB = $("#" + opcion);
+
+            //peso control si es dispositivo pequeño
+            if (screen.width <= 680) {
+                border = 0;
+                console.log("peso control:");
+            }//fin if
+            else if (screen.width <= 1280) {
+                border = Math.round(pesoGeneral / 2);
+            } else {
+                border = pesoGeneral;
+            }//fin else
+
+            if (elementoA) {
+                if (elementoA.offsetHeight > 0) {
+                    altura = elementoA.offsetHeight + border;
+                    //alert("offsetHeight="+elementoA.offsetHeight);
+                }
+                else if (elementoA.clientHeight > 0) {
+                    altura = elementoA.clientHeight + border;
+                    //alert("clientHeight="+elementoA.clientHeight);
+                }
+                else if (elementoA.height > 0) {
+                    altura = elementoA.height + border;
+                    //alert("height="+elementoA.height);
+                }
+                //alert("[JS]"+opcion+"="+altura);
+            } else if (elementoB != null) {
+                altura = $("#" + opcion).height() + border;
+                ///alert("[JQ]"+opcion+"="+altura);
+            } else {
+                altura = document.height + border;
+                //alert("[N]"+opcion+"="+altura);
+            }
+            //alert(opcion+"="+altura);
+            var fpadre = parent.document.getElementById(frame); //update 20170823
+            fpadre.setAttribute("height", altura); //da valor a frame superior
+
+            console.log("existe nivel 1 " + fpadre.name + " :: " + fpadre.height + " valor:" + altura);
+            console.log("muestra::" + $("#muestra").height());
+            //window.parent.document.getElementById(frame).height = altura;
+            //$("#"+frame, window.parent.document).attr("height",altura);
+        }//fin function
+
+
+        // redimenciona si hay cambio en tamaño de pantalla
+        function aplicaDimensionar() {
+            console.log(screenWidth + " // " + screen.width);
+            //if(screenWidth != screen.width || screenHeight != screen.height){
+            getHeightDoc('principal', 'muestra', pesoGeneral);//ajustamos valores
+            screenWidth = screen.width;
+            screenHeight = screen.height
+            console.log("revisa y cambia x tamaño de pantalla");
+            //}//fin if
+
+            //}  
+        }//fin aplicaDimensionar
+        //cada 3 segundos revisa
+        setInterval(function () { aplicaDimensionar(); }, 3000);
+
+    </script>
+
+</head>
+
+
+<body id="muestra" onLoad="getHeightDoc('principal','muestra',pesoGeneral);" onResize="getHeightDoc('principal','muestra',pesoGeneral);">
+
+
+
+    <div class="container">
+
+
+        <div style="background-color: #556221; padding: 5px; color: white; ">
+            <div class="container">
+                <h4>Módulo 2. ¿Quiénes tienen derechos humanos?</h4>
+            </div>
+        </div><br><br>
+
+        <section class="container">
+
+
+
+            <!---accesibilidad//-->
+            <section class="accesible">
+                <div class="accesibilidad col-xs-12 col-lg-12 animated slideInLeft " style="margin-top:-20px">
+                    <ul>
+                        <li><a onclick="cambiarArchivoCss('css/estilos.css');"><i class="icon-c2" title="Contraste normal"></i></a></li>
+                        <li><a onclick="cambiarArchivoCss('css/alto.css');"><i class="icon-c1" title="Alto contraste"></i></a></li>
+                        <li><a onclick="decreaseFontSize()"><i class="icon-menos" title="Disminuye el tamaño del texto"></i></a></li>
+                        <li><a onclick="increaseFontSize()"><i class="icon-mas" title="Aumenta el tamaño del texto"></i></a></li>
+                        <li><a href="javascript:window.print();" title="Imprimir"><i class="icon-print" title="Imprimir"></i></a></li>
+                    </ul>
+                </div>
+            </section>
+
+
+    </div>
+
+
+    <div class="container">
+
+
+        <h2 class="headings color1" style="font-weight:500; ">
+            Actividad de aprendizaje. Derechos para todas las personas
+        </h2>
+        <hr style="border: 1px solid #e6e6e6;">
+
+
+        <p>Para saber si lograste reconocer los sujetos de derechos humanos y quién tiene la obligación de respetarlos,
+            realiza la siguiente actividad.
+
+        </p>
+
+        <p>Lee las descripciones; posteriormente, elige el concepto que la complemente correctamente y arrástralo al
+            lugar que le corresponde.</p><br><br>
+
+        <!-- Button trigger modal -->
+        <center>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" style="background: #00416A">
+            Actividad de aprendizaje
+        </button>
+    </center>
+
+    <div style="height:50px;">
+        <!--Div vacío-->
+      </div>
+
+    </div>
+
+
+    <br><br>
+
+
+    <div class="text-center">
+        <div class="pagination">
+            <a href="p5.html">&laquo;</a>
+
+            <a href="index.html">1</a>
+            <a href="p2.html">2</a>
+            <a href="p3.html">3</a>
+            <a href="p4.html">4</a>
+            <a href="p5.html">5</a>
+            <a class="active" href="#">6</a>
+            <a href="p7.html">7</a>
+            <a href="p8.html">8</a>
+
+
+            <a href="p7.html">&raquo;</a>
+        </div>
+        <br><br>
+        <hr style="border: 1px solid #e6e6e6;">
+        <br><br><br>
+    </div>
+
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content ">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="exampleModalLongTitle">Actividad de aprendizaje</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <iframe src="https://programas.cuaed.unam.mx/cndh/moodle/mod/quiz/view.php?id=555" frameborder="0" width="100%" height="1200px" style="margin: 0;"></iframe>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" style="background: #00416A;">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    </section>
+
+
+
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
+
+</style>
